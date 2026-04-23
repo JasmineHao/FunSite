@@ -6,28 +6,25 @@
 <title>第十四章 错账 | 仙家请留步</title>
 <link rel="stylesheet" href="../../../static/css/style.css">
 </head>
-<body >
-<header class="site-header">
-  <div class="container header-inner">
-    <a href="../../../index.html" class="site-brand">
-      <div class="logo">书</div>
-      <span>仙家请留步</span>
-    </a>
-    <nav class="header-nav">
-      <a href="../../xianjia/index.html">目录</a>
-      <a href="ch01.html">1</a><a href="ch02.html">2</a><a href="ch03.html">3</a><a href="ch04.html">4</a><a href="ch05.html">5</a><a href="ch06.html">6</a><a href="ch07.html">7</a><a href="ch08.html">8</a><a href="ch09.html">9</a><a href="ch10.html">10</a><a href="ch11.html">11</a><a href="ch12.html">12</a><a href="ch13.html">13</a><a href="ch14.html" style="color:var(--accent);font-weight:600;">14</a>
-    </nav>
-  </div>
+<body>
+<!-- 顶部状态栏 -->
+<header class="reader-topbar hidden">
+  <a href="../../xianjia/index.html" class="back-btn">←</a>
+  <span class="chapter-name">第十四章 错账</span>
 </header>
 
-<main class="container-narrow reader">
-  <div class="chapter-header">
-    <div class="chapter-breadcrumb">
-      <a href="../../../index.html">书柜</a> / <a href="../../xianjia/index.html">仙家请留步</a> / 第14章
-    </div>
-    <h1 class="chapter-title">第十四章 错账</h1>
-  </div>
-  
+<!-- 底部进度栏 -->
+<div class="reader-bottombar hidden">
+  <span class="progress-text">0%</span>
+  <div class="progress-bar"><div class="progress-fill"></div></div>
+</div>
+
+<!-- 屏幕中央点击区 -->
+<div class="tap-zone"></div>
+
+<!-- 阅读内容 -->
+<main class="reader-container">
+  <h1 class="chapter-title">第十四章 错账</h1>
   <div class="chapter-body">
     <p>女人住在城东一条窄巷尽头，门漆剥落，门槛被 decades 的鞋底磨出凹陷。无咎跟在女人身后，青灰直裰的下摆扫过石阶，左腕五枚旧铜钱在袖口下微微相碰，发出极轻的响。她没回头，但后颈的凉意一直没散——天衡司的巡查阵纹仍在，像一双悬在头顶的眼睛，静静俯视这片区域。</p>
 <p>屋里弥漫着药味和香火气。孩子躺在里间的榻上，盖着一床洗得发白的薄被，面色青白，嘴唇干裂。一个老大夫坐在床边，手指搭在孩子腕上，眉头拧成死结。</p>
@@ -123,36 +120,44 @@
 <p>谢问心。</p>
 <p>天衡司执令使谢问心，带着人，来了。</p>
   </div>
-  
-  <div class="chapter-nav">
-    <a href="ch13.html"><span>← 上一章</span><strong>第十三章 回到人间</strong></a>
-    <span class="disabled">已是最后一章</span>
-  </div>
 </main>
 
-<div class="audio-bar">
-  <div class="audio-bar-inner">
-    <div class="audio-controls">
-      <button id="audio-play" class="audio-btn primary" onclick="togglePlay()" title="播放/暂停">▶</button>
-      <button id="audio-stop" class="audio-btn" onclick="stopAll()" title="停止">⏹</button>
-      <button id="audio-settings-btn" class="audio-btn" onclick="toggleVoices()" title="语音设置">⚙️</button>
+<!-- 底部弹出菜单 -->
+<div class="reader-menu" id="reader-menu">
+  <div class="menu-header">
+    <h3>第14章</h3>
+    <button class="menu-close" onclick="closeMenu()">×</button>
+  </div>
+  
+  <div class="menu-controls">
+    <button class="menu-btn" id="menu-play-btn" onclick="togglePlay()">
+      <span class="icon">▶</span>
+      朗读
+    </button>
+    <button class="menu-btn" onclick="changeFontSize(-1)">
+      <span class="icon">A-</span>
+      字号
+    </button>
+    <button class="menu-btn" onclick="changeFontSize(1)">
+      <span class="icon">A+</span>
+      字号
+    </button>
+    <button class="menu-btn" onclick="toggleTheme()">
+      <span class="icon">☽</span>
+      亮度
+    </button>
+  </div>
+  
+  <div class="menu-section">
+    <label>语音</label>
+    <div class="voice-options" id="voice-list">
+      <span class="voice-chip">加载中...</span>
     </div>
-    <div class="audio-info">
-      <div class="audio-label" id="audio-label">点击播放开始朗读</div>
-      <div class="audio-title" id="audio-title">等待播放...</div>
-    </div>
-    <div class="audio-progress-wrap">
-      <div class="audio-progress" id="audio-progress">
-        <div class="audio-progress-fill" id="audio-progress-fill"></div>
-      </div>
-      <div class="audio-time">
-        <span id="audio-cur">0:00</span>
-        <span id="audio-tot">0:00</span>
-      </div>
-    </div>
-    <div class="audio-settings">
-      <div class="audio-voices" id="audio-voices"></div>
-    </div>
+  </div>
+  
+  <div class="chapter-jump">
+    <a href="ch13.html"><span>← 上一章</span><strong>第十三章 回到人间</strong></a>
+    
   </div>
 </div>
 

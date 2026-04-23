@@ -6,28 +6,25 @@
 <title>第七章 地道与账单 | 仙家请留步</title>
 <link rel="stylesheet" href="../../../static/css/style.css">
 </head>
-<body >
-<header class="site-header">
-  <div class="container header-inner">
-    <a href="../../../index.html" class="site-brand">
-      <div class="logo">书</div>
-      <span>仙家请留步</span>
-    </a>
-    <nav class="header-nav">
-      <a href="../../xianjia/index.html">目录</a>
-      <a href="ch01.html">1</a><a href="ch02.html">2</a><a href="ch03.html">3</a><a href="ch04.html">4</a><a href="ch05.html">5</a><a href="ch06.html">6</a><a href="ch07.html" style="color:var(--accent);font-weight:600;">7</a><a href="ch08.html">8</a><a href="ch09.html">9</a><a href="ch10.html">10</a><a href="ch11.html">11</a><a href="ch12.html">12</a><a href="ch13.html">13</a><a href="ch14.html">14</a>
-    </nav>
-  </div>
+<body>
+<!-- 顶部状态栏 -->
+<header class="reader-topbar hidden">
+  <a href="../../xianjia/index.html" class="back-btn">←</a>
+  <span class="chapter-name">第七章 地道与账单</span>
 </header>
 
-<main class="container-narrow reader">
-  <div class="chapter-header">
-    <div class="chapter-breadcrumb">
-      <a href="../../../index.html">书柜</a> / <a href="../../xianjia/index.html">仙家请留步</a> / 第7章
-    </div>
-    <h1 class="chapter-title">第七章 地道与账单</h1>
-  </div>
-  
+<!-- 底部进度栏 -->
+<div class="reader-bottombar hidden">
+  <span class="progress-text">0%</span>
+  <div class="progress-bar"><div class="progress-fill"></div></div>
+</div>
+
+<!-- 屏幕中央点击区 -->
+<div class="tap-zone"></div>
+
+<!-- 阅读内容 -->
+<main class="reader-container">
+  <h1 class="chapter-title">第七章 地道与账单</h1>
   <div class="chapter-body">
     <p>神像在背后合拢，把最后一丝雪光碾灭。</p>
 <p>地道里只剩黑暗。无咎站在最前，等眼睛适应。阿岁蹲在她脚边，绿眼睛泛着幽光。陶安在最后，背靠着石壁，喘得像破风箱。</p>
@@ -163,36 +160,44 @@
 <p>四周是人，是声音，是烟火气，是一切活着的东西。</p>
 <p>但她的后颈，一直在凉。</p>
   </div>
-  
-  <div class="chapter-nav">
-    <a href="ch06.html"><span>← 上一章</span><strong>第六章 追兵上门</strong></a>
-    <a href="ch08.html" class="next"><span>下一章 →</span><strong>第八章 欠自由的利息</strong></a>
-  </div>
 </main>
 
-<div class="audio-bar">
-  <div class="audio-bar-inner">
-    <div class="audio-controls">
-      <button id="audio-play" class="audio-btn primary" onclick="togglePlay()" title="播放/暂停">▶</button>
-      <button id="audio-stop" class="audio-btn" onclick="stopAll()" title="停止">⏹</button>
-      <button id="audio-settings-btn" class="audio-btn" onclick="toggleVoices()" title="语音设置">⚙️</button>
+<!-- 底部弹出菜单 -->
+<div class="reader-menu" id="reader-menu">
+  <div class="menu-header">
+    <h3>第7章</h3>
+    <button class="menu-close" onclick="closeMenu()">×</button>
+  </div>
+  
+  <div class="menu-controls">
+    <button class="menu-btn" id="menu-play-btn" onclick="togglePlay()">
+      <span class="icon">▶</span>
+      朗读
+    </button>
+    <button class="menu-btn" onclick="changeFontSize(-1)">
+      <span class="icon">A-</span>
+      字号
+    </button>
+    <button class="menu-btn" onclick="changeFontSize(1)">
+      <span class="icon">A+</span>
+      字号
+    </button>
+    <button class="menu-btn" onclick="toggleTheme()">
+      <span class="icon">☽</span>
+      亮度
+    </button>
+  </div>
+  
+  <div class="menu-section">
+    <label>语音</label>
+    <div class="voice-options" id="voice-list">
+      <span class="voice-chip">加载中...</span>
     </div>
-    <div class="audio-info">
-      <div class="audio-label" id="audio-label">点击播放开始朗读</div>
-      <div class="audio-title" id="audio-title">等待播放...</div>
-    </div>
-    <div class="audio-progress-wrap">
-      <div class="audio-progress" id="audio-progress">
-        <div class="audio-progress-fill" id="audio-progress-fill"></div>
-      </div>
-      <div class="audio-time">
-        <span id="audio-cur">0:00</span>
-        <span id="audio-tot">0:00</span>
-      </div>
-    </div>
-    <div class="audio-settings">
-      <div class="audio-voices" id="audio-voices"></div>
-    </div>
+  </div>
+  
+  <div class="chapter-jump">
+    <a href="ch06.html"><span>← 上一章</span><strong>第六章 追兵上门</strong></a>
+    <a href="ch08.html"><span>下一章 →</span><strong>第八章 欠自由的利息</strong></a>
   </div>
 </div>
 
