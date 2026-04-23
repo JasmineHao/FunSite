@@ -503,3 +503,31 @@ body {
   .menu-controls { gap: 10px; }
   .menu-btn { min-width: 60px; padding: 10px 14px; }
 }
+
+/* ===== 版权声明样式 ===== */
+.site-footer {
+  padding: 40px 24px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-faint);
+  border-top: 1px solid var(--border);
+  margin-top: 40px;
+}
+
+.site-footer p {
+  max-width: var(--max-content);
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+.chapter-footer {
+  padding: 48px 24px 60px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-faint);
+  border-top: 1px solid var(--border);
+  margin-top: 60px;
+  max-width: var(--max-content);
+  margin-left: auto;
+  margin-right: auto;
+}
