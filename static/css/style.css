@@ -1,0 +1,681 @@
+:root {
+  --bg: #09090b;
+  --bg-elevated: #121214;
+  --bg-hover: #1a1a1e;
+  --bg-subtle: rgba(255,255,255,0.03);
+  --text: #e4e4e7;
+  --text-dim: #a1a1aa;
+  --text-faint: #71717a;
+  --text-bright: #fafafa;
+  --accent: #f59e0b;
+  --accent-soft: rgba(245,158,11,0.12);
+  --accent-hover: #fbbf24;
+  --border: rgba(255,255,255,0.06);
+  --border-hover: rgba(255,255,255,0.12);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --max-content: 720px;
+  --max-wide: 1100px;
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --font-mono: "SF Mono", "Fira Code", "Cascadia Code", monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== Scrollbar ===== */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.15); }
+
+/* ===== Layout ===== */
+.container {
+  max-width: var(--max-wide);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.container-narrow {
+  max-width: var(--max-content);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ===== Header ===== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(9,9,11,0.85);
+  backdrop-filter: blur(20px) saturate(1.2);
+  -webkit-backdrop-filter: blur(20px) saturate(1.2);
+  border-bottom: 1px solid var(--border);
+}
+
+.header-inner {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.site-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--text-bright);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+}
+
+.site-brand .logo {
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(135deg, var(--accent), #d97706);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--bg);
+}
+
+.header-nav {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.header-nav a {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 13.5px;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.header-nav a:hover {
+  color: var(--text);
+  background: var(--bg-subtle);
+}
+
+/* ===== Buttons ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 18px;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  line-height: 1;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #0d0d0d;
+}
+
+.btn-primary:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(245,158,11,0.25);
+}
+
+.btn-ghost {
+  background: var(--bg-subtle);
+  color: var(--text-dim);
+  border: 1px solid var(--border);
+}
+
+.btn-ghost:hover {
+  background: var(--bg-hover);
+  color: var(--text);
+  border-color: var(--border-hover);
+}
+
+.btn-sm {
+  padding: 6px 12px;
+  font-size: 13px;
+}
+
+/* ===== Cards ===== */
+.card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  transition: all 0.25s ease;
+  overflow: hidden;
+}
+
+.card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+}
+
+/* ===== Homepage / Library ===== */
+.library-hero {
+  padding: 80px 0 60px;
+  text-align: center;
+}
+
+.library-hero h1 {
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--text-bright);
+  letter-spacing: -0.5px;
+  margin-bottom: 12px;
+}
+
+.library-hero p {
+  font-size: 16px;
+  color: var(--text-dim);
+  max-width: 480px;
+  margin: 0 auto 32px;
+}
+
+.library-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  padding-bottom: 100px;
+}
+
+.novel-card {
+  composes: card;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  padding: 28px;
+}
+
+.novel-card .novel-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-bright);
+  margin-bottom: 8px;
+}
+
+.novel-card .novel-meta {
+  font-size: 13px;
+  color: var(--text-faint);
+  margin-bottom: 16px;
+  display: flex;
+  gap: 12px;
+}
+
+.novel-card .novel-desc {
+  font-size: 14px;
+  color: var(--text-dim);
+  line-height: 1.7;
+  margin-bottom: 20px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.novel-card .novel-progress {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--text-faint);
+}
+
+.novel-card .progress-bar {
+  flex: 1;
+  height: 3px;
+  background: var(--bg-hover);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.novel-card .progress-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 2px;
+  transition: width 0.5s ease;
+}
+
+/* ===== Novel Page ===== */
+.novel-hero {
+  padding: 60px 0 40px;
+}
+
+.novel-hero-inner {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.novel-cover {
+  width: 180px;
+  height: 240px;
+  background: linear-gradient(145deg, #1e1e24, #121214);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  color: var(--text-faint);
+}
+
+.novel-info {
+  flex: 1;
+}
+
+.novel-info h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text-bright);
+  margin-bottom: 8px;
+  letter-spacing: -0.3px;
+}
+
+.novel-info .novel-subtitle {
+  font-size: 15px;
+  color: var(--text-dim);
+  margin-bottom: 20px;
+}
+
+.novel-info .novel-desc-full {
+  font-size: 15px;
+  color: var(--text-dim);
+  line-height: 1.8;
+  margin-bottom: 24px;
+  max-width: 560px;
+}
+
+.novel-info .novel-actions {
+  display: flex;
+  gap: 12px;
+}
+
+/* ===== TOC Page ===== */
+.toc-section {
+  padding-bottom: 100px;
+}
+
+.toc-section h2 {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-faint);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.toc-list {
+  list-style: none;
+}
+
+.toc-list li {
+  border-bottom: 1px solid var(--border);
+}
+
+.toc-list a {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 16px;
+  color: var(--text);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border-radius: var(--radius-sm);
+  margin: 0 -8px;
+}
+
+.toc-list a:hover {
+  background: var(--bg-subtle);
+}
+
+.toc-list a:hover .ch-title {
+  color: var(--accent);
+}
+
+.toc-list .ch-num {
+  font-size: 13px;
+  color: var(--text-faint);
+  font-weight: 500;
+  min-width: 48px;
+  font-family: var(--font-mono);
+}
+
+.toc-list .ch-title {
+  flex: 1;
+  font-size: 15.5px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.toc-list .ch-status {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 100px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.ch-status.ready {
+  background: rgba(34,197,94,0.1);
+  color: #4ade80;
+}
+
+.ch-status.pending {
+  background: rgba(255,255,255,0.04);
+  color: var(--text-faint);
+}
+
+/* ===== Reader ===== */
+.reader {
+  padding: 48px 0 100px;
+}
+
+.chapter-header {
+  margin-bottom: 48px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.chapter-breadcrumb {
+  font-size: 13px;
+  color: var(--text-faint);
+  margin-bottom: 12px;
+}
+
+.chapter-breadcrumb a {
+  color: var(--text-dim);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.chapter-breadcrumb a:hover {
+  color: var(--accent);
+}
+
+.chapter-title {
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--text-bright);
+  letter-spacing: -0.3px;
+  line-height: 1.3;
+}
+
+.chapter-body {
+  font-size: 17.5px;
+  line-height: 1.9;
+  color: var(--text);
+}
+
+.chapter-body p {
+  margin-bottom: 1.6em;
+  text-align: justify;
+}
+
+.chapter-body p:first-of-type {
+  font-size: 18.5px;
+  line-height: 1.95;
+}
+
+.chapter-body p:first-of-type::first-letter {
+  font-size: 3.2em;
+  float: left;
+  line-height: 0.85;
+  margin-right: 10px;
+  margin-top: 4px;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* ===== Chapter Nav ===== */
+.chapter-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 64px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+  gap: 16px;
+}
+
+.chapter-nav a {
+  flex: 1;
+  max-width: 320px;
+  padding: 16px 20px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.chapter-nav a:hover {
+  border-color: var(--border-hover);
+  color: var(--text);
+  background: var(--bg-hover);
+}
+
+.chapter-nav a strong {
+  display: block;
+  color: var(--text-bright);
+  font-size: 15px;
+  margin-top: 4px;
+  font-weight: 600;
+}
+
+.chapter-nav a.next {
+  text-align: right;
+}
+
+.chapter-nav span.disabled {
+  flex: 1;
+  padding: 16px 20px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  color: var(--text-faint);
+  font-size: 14px;
+  text-align: center;
+  opacity: 0.5;
+}
+
+/* ===== Audio Player Bar ===== */
+.audio-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(9,9,11,0.92);
+  backdrop-filter: blur(24px) saturate(1.2);
+  -webkit-backdrop-filter: blur(24px) saturate(1.2);
+  border-top: 1px solid var(--border);
+  z-index: 200;
+  padding: 14px 0;
+}
+
+.audio-bar-inner {
+  max-width: var(--max-content);
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.audio-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.audio-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: var(--bg-elevated);
+  color: var(--text-dim);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  font-size: 16px;
+}
+
+.audio-btn:hover {
+  background: var(--bg-hover);
+  color: var(--text);
+}
+
+.audio-btn.primary {
+  background: var(--accent);
+  color: #0d0d0d;
+  width: 44px;
+  height: 44px;
+}
+
+.audio-btn.primary:hover {
+  background: var(--accent-hover);
+  transform: scale(1.05);
+}
+
+.audio-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.audio-info .audio-label {
+  font-size: 12px;
+  color: var(--text-faint);
+  margin-bottom: 4px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+.audio-info .audio-title {
+  font-size: 14px;
+  color: var(--text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.audio-progress-wrap {
+  flex: 2;
+  min-width: 0;
+}
+
+.audio-progress {
+  width: 100%;
+  height: 4px;
+  background: var(--bg-hover);
+  border-radius: 2px;
+  overflow: hidden;
+  cursor: pointer;
+  margin-bottom: 6px;
+}
+
+.audio-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), #fbbf24);
+  width: 0%;
+  border-radius: 2px;
+  transition: width 0.1s linear;
+}
+
+.audio-time {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--text-faint);
+  font-family: var(--font-mono);
+}
+
+.audio-settings {
+  position: relative;
+}
+
+.audio-voices {
+  position: absolute;
+  bottom: 52px;
+  right: 0;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 8px;
+  min-width: 180px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+  display: none;
+}
+
+.audio-voices.open { display: block; }
+
+.audio-voices button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 8px 12px;
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  font-size: 13px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.audio-voices button:hover,
+.audio-voices button.active {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .library-hero h1 { font-size: 30px; }
+  .novel-hero-inner { flex-direction: column; align-items: center; text-align: center; }
+  .novel-cover { width: 140px; height: 190px; }
+  .novel-info .novel-actions { justify-content: center; }
+  .chapter-title { font-size: 24px; }
+  .chapter-body { font-size: 16.5px; }
+  .chapter-nav { flex-direction: column; }
+  .chapter-nav a { max-width: none; text-align: center !important; }
+  .audio-bar-inner { flex-wrap: wrap; gap: 8px; }
+  .audio-progress-wrap { order: 3; width: 100%; flex: none; }
+}
+
+@media (max-width: 480px) {
+  body { font-size: 16px; }
+  .chapter-body p:first-of-type::first-letter { font-size: 2.4em; }
+}
